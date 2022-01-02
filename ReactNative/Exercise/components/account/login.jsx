@@ -1,0 +1,115 @@
+import React from "react";
+import global from '../../assets/images/global.png'
+import {
+    View,
+    TextInput,
+    TouchableOpacity,
+    Text,
+    Image,
+    ScrollView
+} from "react-native";
+import styles from "./loginStyles";
+
+const Login = () => {
+    return (
+        <ScrollView style={styles.container}>
+            <View style={styles.imgContent}>
+                <Image 
+                    style={styles.globalImg}
+                    source={global}
+                />
+
+                <Text style={styles.baseText}>LinkedSite</Text>
+            </View>
+
+            <View>
+                <Text>
+                    Acciona Account Users (eg.@acciona, @colemanrail etc.)  Sign in with your corporate ID
+                </Text>
+            </View>
+
+            <View>
+                <TouchableOpacity
+                    style={styles.btnLoginPri}
+                >
+                    <Text style={{ 
+                        color: "#fff",
+                        fontSize: 16
+                     }}>
+                        AccionaCorporateLogin
+                    </Text>
+                </TouchableOpacity>
+            </View>
+
+            <View >
+                <Text style={styles.desc}>
+                    All Other Users / Use the login form below
+                </Text>
+            </View>
+
+            <View style={styles.formLogin}>
+                <View style={styles.formControl}>
+                    <Text style={styles.inputLabel}>Email</Text>
+                    <TextInput
+                        style={styles.input}
+                        // onChangeText={onChangeNumber}
+                        placeholder="Email address"
+                        keyboardType="email-address"
+                    />
+                </View>
+
+                <View style={styles.formControl}>
+                    <Text style={styles.inputLabel}>Password</Text>
+                    <TextInput
+                        style={styles.input}
+                        // onChangeText={onChangeNumber}
+                        placeholder="Password"
+                        keyboardType="visible-password"
+                    />
+                </View>
+
+                <View style={styles.forgotPass}>
+                    <Text>
+                        Forgot your password?
+                    </Text>
+                </View>
+                
+                <View>
+                    <TouchableOpacity
+                        style={styles.btnSub}
+                    >
+                        <Text style={{ 
+                            color: "#fff",
+                            fontSize: 16,
+                            fontWeight: "bold"
+                        }}>
+                            Login
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+
+            <View style={styles.info}>
+                <Text style={styles.infoDetails}>Forgot your password or having trouble signing in?</Text>
+                <Text style={styles.infoDetails}>
+                    Contact the Service Desk on:&nbsp;
+                    <Text style={{
+                        color: "#e00000", 
+                        fontWeight: "bold"
+                    }}>
+                        (+84) 337 965 469
+                    </Text>
+                </Text>
+                <Text style={styles.infoDetails}>Raise an incident via <Text style={{
+                        color: "#e00000", 
+                        fontWeight: "bold"}}
+                    >
+                        Service Now Portal
+                    </Text>
+                </Text>
+            </View>
+        </ScrollView>
+    )
+}
+
+export default Login;
