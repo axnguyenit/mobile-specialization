@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from 'react-redux'
 import {
     SafeAreaView,
     View,
@@ -11,10 +12,16 @@ import { useNavigation } from "@react-navigation/native";
 
 import styles from "./recordsStyles";
 import RecordItem from "./recordItem";
-import records from '../../fake-db/records/records';
+// import records from '../../fake-db/records';
 
 const Records = () => {
+    const records = useSelector(state => state.record)
     const navigation = useNavigation();
+
+    // useEffect(() => {
+    //     dispatch(getRecords())
+    // }, [dispatch])
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.heading}>

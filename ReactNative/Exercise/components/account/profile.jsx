@@ -29,7 +29,7 @@ const Profile = () => {
                     <Text style={styles.infoDetails}>Front End Developer</Text>
                 </View>
             </View>
-            <View style={{ height: 50 }} />
+            {/* <View style={{ height: 50 }} /> */}
         </View>
     )
 }

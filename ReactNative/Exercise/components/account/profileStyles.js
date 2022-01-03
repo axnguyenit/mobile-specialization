@@ -2,21 +2,24 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
     container: {
-        paddingVertical: 20
+        flex: 1,
+        backgroundColor: "#e5e5e5",
     },
     containerFluid: {
         padding: 20,
+        backgroundColor: "#e5e5e5"
     },
     title: {
         padding: 20,
+        paddingTop: 30,
         alignItems: "center",
         justifyContent: "center",
         borderBottomWidth: 1,
         borderColor: "#ccc",
         fontWeight: "bold",
         fontSize: 20,
-        backgroundColor: "#fff",
-        textAlign: "center"
+        textAlign: "center",
+        backgroundColor: "#fff"
     },
     infoControl: {
         flexDirection: "row",
@@ -25,8 +28,8 @@ const styles = StyleSheet.create({
         marginVertical: 8,
         paddingHorizontal: 8,
         paddingVertical: 12,
+        borderColor: "#ccc",
         borderWidth: 1,
-        borderColor: "#E8E8EB",
         borderRadius: 4
     },
     infoDetails: {

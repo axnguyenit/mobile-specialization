@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingVertical: 20,
         marginBottom: 37,
-        backgroundColor: "#e5e5e5",
+        backgroundColor: "#fff",
     },
     heading: {
         paddingVertical: 15,
@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
         position: "relative",
         borderBottomWidth: 1,
         borderColor: "#ccc",
-        backgroundColor: "#fff"
     },
     title: {
         fontWeight: "bold",
@@ -124,17 +123,73 @@ const styles = StyleSheet.create({
     // add record
     inputLabel: {
         marginTop: 8,
-        marginBottom: 8,
-        fontWeight: "bold"
+        marginBottom: 4,
+        fontWeight: "bold",
     },
     input: {
-        height: 50,
         borderColor: "#ccc",
         borderWidth: 1,
         borderRadius: 3,
-        padding: 12,
-        fontSize: 15
+        paddingVertical: 6,
+        paddingHorizontal: 10,
+        fontSize: 15,
+        backgroundColor: "#fff"
+    },
+    row: {
+        flexDirection: "row",
+        justifyContent: "space-between"
+    },
+    formControl: {
+        width: "48%",
+    },
+
+    btnGroup: {
+        marginTop: 20,
+        flexDirection: "row",
+        justifyContent: "space-between"
+    },
+    btn: {
+        paddingVertical: 12,
+        paddingHorizontal: 10,
+        borderRadius: 4,
+        justifyContent: "center"
+    },
+    btnAdd: {
+        backgroundColor: "#7367f0",
+        width: "48%",
+    },
+    btnCancel: {
+        backgroundColor: "#D00C04",
+        width: "48%",
+    },
+    warning: {
+        color: "#D00C04"
+    }
+});
+
+const pickerSelectStyles = StyleSheet.create({
+    inputIOS: {
+        borderColor: "#ccc",
+        borderWidth: 1,
+        borderRadius: 3,
+        paddingVertical: 6,
+        paddingHorizontal: 10,
+        fontSize: 15,
+        backgroundColor: "#fff",
+        color: "#999",
+    },
+    inputAndroid: {
+        borderColor: "#ccc",
+        borderWidth: 1,
+        borderRadius: 3,
+        paddingVertical: 6,
+        paddingHorizontal: 10,
+        fontSize: 15,
+        backgroundColor: "#fff",
+        color: "#999",
     },
 });
+
+export { pickerSelectStyles }
 
 export default styles;

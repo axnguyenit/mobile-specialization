@@ -5,7 +5,8 @@ const styles = StyleSheet.create({
         paddingTop: 20,
     },
     containerFluid: {
-        padding: 20
+        padding: 20,
+        backgroundColor: "#e5e5e5"
     },
     title: {
         padding: 20,
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
         borderColor: "#ccc",
         fontWeight: "bold",
         fontSize: 20,
-        textAlign: "center"
+        textAlign: "center",
     },
     subTitle: {
         marginBottom: 20,

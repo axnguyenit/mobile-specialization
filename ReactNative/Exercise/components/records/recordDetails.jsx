@@ -8,11 +8,13 @@ import {
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import { useSelector } from "react-redux";
 
 import styles from "./recordsStyles";
-import records from "../../fake-db/records/records";
+// import records from "../../fake-db/records";
 
 const RecordDetails = () => {
+    const records = useSelector(state => state.record)
     const navigation = useNavigation();
     const route = useRoute();
     const [recordDetails, setRecordDetails] = useState({});
@@ -108,7 +110,7 @@ const RecordDetails = () => {
                                     </View>
                                     <View style={styles.recordDetailsItem}>
                                         <Text style={styles.recordDetailsLabel}>Rate</Text>
-                                        <Text style={styles.recordDetailsContent}>${recordDetails.details.rate.toFixed(2)}</Text>
+                                        <Text style={styles.recordDetailsContent}>${parseInt(recordDetails.details.rate).toFixed(2)}</Text>
                                     </View>
                                 </View>
                                 <View style={styles.recordDetailsGrid}>
@@ -118,7 +120,7 @@ const RecordDetails = () => {
                                     </View>
                                     <View style={styles.recordDetailsItem}>
                                         <Text style={styles.recordDetailsLabel}>Proposed Value</Text>
-                                        <Text style={styles.recordDetailsContent}>${(recordDetails.details.rate * recordDetails.details.quantity).toFixed(2)}</Text>
+                                        <Text style={styles.recordDetailsContent}>${(parseInt(recordDetails.details.rate) * parseInt(recordDetails.details.quantity)).toFixed(2)}</Text>
                                     </View>
                                 </View>
 

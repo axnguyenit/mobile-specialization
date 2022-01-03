@@ -79,7 +79,7 @@ const Jobs = () => {
                         arr && arr.map(item => <JobItem key={item.id} item={item}/>)
                     }
                 </View>
-                <View style={{ height: 90 }} />
+                <View style={{ height: 20 }} />
             </ScrollView>
         </View>
     )
