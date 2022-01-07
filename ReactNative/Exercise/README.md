@@ -1,37 +1,46 @@
 # React Native Exercise
 
 ## Preview Login Screen
-
-![Login Screen](./preview/preview-login.png)
+<div align="center">
+    <img width="300px" src="./preview/preview-login.png"/>
+</div>
 
 ## Preview Calculator Screen
-
-![Calculator Screen](./preview/preview-calculator.png)
+<div align="center">
+    <img width="300px" src="./preview/preview-calculator.png"/>
+</div>
 
 ## Preview Posts Scroll View Screen
-
-![Posts Scroll View Screen](./preview/preview-posts-scroll-view.png)
+<div align="center">
+    <img width="300px" src="./preview/preview-posts-scroll-view.png"/>
+</div>
 
 ## Preview Jobs Flat List & Scroll View Screen
-
-![Jobs Flat List & Scroll View Screen](./preview/preview-jobs-scroll-view.png)
+<div align="center">
+    <img width="300px" src="./preview/preview-jobs-scroll-view.png"/>
+</div>
 
 ## Preview Profile Screen
-
-![Profile Screen](./preview/preview-profile.png)
+<div align="center">
+    <img width="300px" src="./preview/preview-profile.png"/>
+</div>
 
 ## Preview Drawer Navigator
-
-![Drawer Navigator](./preview/preview-drawer-navigator.png)
+<div align="center">
+    <img width="300px" src="./preview/preview-drawer-navigator.png"/>
+</div>
 
 ## Preview Records Screen
-
-![Records Screen](./preview/preview-records.png)
+<div align="center">
+    <img width="300px" src="./preview/preview-records.png"/>
+</div>
 
 ## Preview Record Details Screen
-
-![Record Details Screen](./preview/preview-record-details.png)
+<div align="center">
+    <img width="300px" src="./preview/preview-record-details.png"/>
+</div>
 
 ## Preview Add Record Screen
-
-![Add Record Screen](./preview/preview-add-record.png)
+<div align="center">
+    <img width="300px" src="./preview/preview-add-record.png"/>
+</div>

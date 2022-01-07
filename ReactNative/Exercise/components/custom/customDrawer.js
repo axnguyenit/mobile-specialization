@@ -10,12 +10,22 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useDispatch } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
+import { handleLogout } from '../../redux/actions/auth';
 import styles from './drawerStyles';
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const CustomDrawer = props => {
+  const dispatch = useDispatch()
+  const navigation = useNavigation()
+
+  const logout = () => {
+    dispatch(handleLogout({}))
+    navigation.navigate('Login')
+  }
+
   return (
     <View style={styles.container}>
       <DrawerContentScrollView
@@ -41,7 +51,7 @@ const CustomDrawer = props => {
         </View>
       </DrawerContentScrollView>
       <View>
-        <TouchableOpacity onPress={() => {}} style={{paddingVertical: 15, backgroundColor: "#D00C04",}}>
+        <TouchableOpacity onPress={logout} style={{paddingVertical: 15, backgroundColor: "#D00C04",}}>
           <View style={{paddingHorizontal: 20, flexDirection: 'row', alignItems: 'center', }}>
             <Ionicons name="exit-outline" size={22} style={{ color: "#fff" }} />
             <Text

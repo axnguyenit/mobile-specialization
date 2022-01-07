@@ -1,5 +1,5 @@
-import React from "react";
-import global from '../../assets/images/global.png'
+import React, { useState } from "react";
+import global from '../../assets/images/global.png';
 import {
     View,
     TextInput,
@@ -8,9 +8,41 @@ import {
     Image,
     ScrollView
 } from "react-native";
+import { useDispatch } from "react-redux";
+import { handleLogin } from "../../redux/actions/auth";
+import { useNavigation } from "@react-navigation/native";
+import users from "../../fake-db/users"
 import styles from "./loginStyles";
 
 const Login = () => {
+    const navigation = useNavigation()
+    const dispatch = useDispatch()
+    const [err, setErr] = useState('')
+    const [user, setUser] = useState({
+        email: "",
+        password: ""
+    })
+
+    const onChange = (text, name) => {
+        setUser({ ...user, [name]: text })
+        setErr("")
+    }
+
+    const handleDispatch = (validUser) => {
+        const { email, employed, fullName } = validUser
+        dispatch(handleLogin({
+            email,
+            employed,
+            fullName
+        }))
+        navigation.navigate("User")
+    }
+
+    const onSubmit = () => {
+        const validUser = users.find(u => u.email === user.email && u.password === user.password)
+        validUser ? handleDispatch(validUser) : setErr("Email or Password is invalid!")
+    }
+
     return (
         <ScrollView style={styles.container}>
             <View style={styles.imgContent}>
@@ -52,7 +84,7 @@ const Login = () => {
                     <Text style={styles.inputLabel}>Email</Text>
                     <TextInput
                         style={styles.input}
-                        // onChangeText={onChangeNumber}
+                        onChangeText={text => onChange(text, "email")}
                         placeholder="Email address"
                         keyboardType="email-address"
                     />
@@ -62,10 +94,14 @@ const Login = () => {
                     <Text style={styles.inputLabel}>Password</Text>
                     <TextInput
                         style={styles.input}
-                        // onChangeText={onChangeNumber}
+                        onChangeText={text => onChange(text, "password")}
                         placeholder="Password"
-                        keyboardType="visible-password"
+                        secureTextEntry={true}
                     />
+                </View>
+
+                <View>
+                    <Text style={{ color: "#D00C04", fontWeight: "bold" }}>{err}</Text>
                 </View>
 
                 <View style={styles.forgotPass}>
@@ -77,6 +113,7 @@ const Login = () => {
                 <View>
                     <TouchableOpacity
                         style={styles.btnSub}
+                        onPress={onSubmit}
                     >
                         <Text style={{ 
                             color: "#fff",

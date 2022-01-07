@@ -18,10 +18,6 @@ const Records = () => {
     const records = useSelector(state => state.record)
     const navigation = useNavigation();
 
-    // useEffect(() => {
-    //     dispatch(getRecords())
-    // }, [dispatch])
-
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.heading}>
@@ -42,7 +38,7 @@ const Records = () => {
                         records && records.map(record => <RecordItem key={record.id} record={record} />)
                     }
                 </View>
-                <View style={{ height: 50 }} />
+                <View style={{ height: 120 }} />
             </ScrollView>
         </SafeAreaView>
     )

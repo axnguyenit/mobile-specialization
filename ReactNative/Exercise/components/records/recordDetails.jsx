@@ -136,7 +136,7 @@ const RecordDetails = () => {
                         }
                     </View>
                 }
-                <View style={{ height: 50 }} />
+                <View style={{ height: 120 }} />
             </ScrollView>
         </SafeAreaView>
     )
