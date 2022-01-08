@@ -90,7 +90,7 @@ const SelectCentre = (props) => {
                 </TouchableOpacity>
                 <Text style={{ textAlign: 'center', width: '100%', fontWeight: 'bold' }}>Select Centre</Text>
             </View>
-            <View style={styles.search}>
+            <View>
                 <InputSearch
                     placeholder='Search Centre Name'
                 />
@@ -127,10 +127,8 @@ const CentreItem = ({item}) => (
     </TouchableOpacity>
 )
 
-const { height, width } = Dimensions.get('window');
+const { height } = Dimensions.get('window');
 const styles = StyleSheet.create({
-    search: {
-    },
     view: {
         padding: 15,
         backgroundColor: '#fff',

@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { BottomSheet } from 'react-native-btr';
 
-import styles from './styles';
+import styles from './CentresStyles';
 import Icon, { Icons } from '../../components/icons';
 import { InputSearch } from '../../components/input';
 import { CentreCard } from '../../components/card';
@@ -125,28 +125,30 @@ const Centres = (props) => {
                 {/* End Total Card */}
 
                 {/* Centre Card */}
-                <ScrollView>
-                    <View style={[styles.row, styles.searchBox]}>
-                        <View style={{ width: '82%' }}>
-                            <InputSearch 
-                                placeholder='Search Centre Name'
-                            />
+                <View style={{ paddingBottom: 250, }}>
+                    <ScrollView>
+                        <View style={[styles.row, styles.searchBox]}>
+                            <View style={{ width: '82%' }}>
+                                <InputSearch 
+                                    placeholder='Search Centre Name'
+                                />
+                            </View>
+                            <TouchableOpacity style={styles.filter}>
+                                <Image
+                                    source={IconFilter}
+                                    style={styles.cardImg}
+                                />
+                            </TouchableOpacity>
                         </View>
-                        <TouchableOpacity style={styles.filter}>
-                            <Image
-                                source={IconFilter}
-                                style={styles.cardImg}
-                            />
-                        </TouchableOpacity>
-                    </View>
 
-                    <View style={{ paddingHorizontal: 15 }}>
-                        <CentreCard />
-                        <CentreCard />
-                        <CentreCard />
-                        <CentreCard />
-                    </View>
-                </ScrollView>
+                        <View style={{ paddingHorizontal: 15 }}>
+                            <CentreCard />
+                            <CentreCard />
+                            <CentreCard />
+                            <CentreCard />
+                        </View>
+                    </ScrollView>
+                </View>
                 {/* End Centre Card */}
                 
                 {/* Bottom Sheet */}

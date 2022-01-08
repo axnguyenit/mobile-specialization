@@ -26,12 +26,13 @@ const styles = StyleSheet.create({
         width: 22,
         height: 22,
     },
-    module: {
+    cards: {
         marginTop: -50,
-        paddingLeft: 10,
-        paddingVertical: 10
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        paddingBottom: 180,
     },
-    totalCard: {
+    card: {
         backgroundColor: '#FFF',
         borderRadius: 8,
         padding: 10,
@@ -46,33 +47,28 @@ const styles = StyleSheet.create({
         elevation: 4,
         margin: 6
     },
-    imgArea: {
-        padding: 10,
-        borderRadius: 999,
-        marginRight: 10
+    cardHeading: {
+        padding: 4,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderBottomWidth: 1,
+        borderBottomColor: '#F2F2F2',
+        paddingBottom: 10
     },
     cardImg: {
-        width: 16,
-        height: 16
+        width: 36,
+        height: 36,
+        marginRight: 10
     },
-    searchBox: {
-        justifyContent: 'space-between',
-        paddingHorizontal: 15,
-        paddingBottom: 15
+    cardTitle: {
+        fontSize: 18,
+        fontWeight: 'bold'
     },
-    filter: {
-        backgroundColor: '#FFF',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        shadowOpacity: 0.20,
-        shadowRadius: 1.41,
-        elevation: 2,
-        padding: 16,
-        borderRadius: 8
-    },
+    cardNo: {
+        fontSize: 18,
+        fontWeight: 'bold'
+    }
 })
 
 export default styles;

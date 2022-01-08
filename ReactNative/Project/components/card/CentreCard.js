@@ -6,6 +6,7 @@ import {
     Text,
     StyleSheet
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import CardImage from '../../assets/images/card-image.png';
 import IconLocation from '../../assets/images/ic-map2.png';
 import IconBaby from '../../assets/images/ic-baby.png';
@@ -14,8 +15,12 @@ import IconKindi from '../../assets/images/ic-kindi.png';
 import IconService from '../../assets/images/ic-service.png';
 
 const CentreCard = (props) => {
+    const navigation = useNavigation();
     return(
-        <TouchableOpacity style={styles.centerCard}>
+        <TouchableOpacity
+            style={styles.centerCard}
+            onPress={() => navigation.navigate('CentreDetails')}
+        >
             <View>
                 <Image 
                     source={CardImage}
