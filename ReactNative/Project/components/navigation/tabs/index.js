@@ -15,6 +15,7 @@ import IconCentreFill from '../../../assets/images/ic-centre-fill.png';
 import IconApplicationFill from '../../../assets/images/ic-file-fill.png';
 import IconMailFill from '../../../assets/images/ic-envelop-fill.png';
 import IconMoreFill from '../../../assets/images/ic-more-fill.png';
+import {MoreScreen} from "../../../screens/more";
 
 const tabs = [
     {
@@ -46,11 +47,11 @@ const tabs = [
         component: Centres 
     },
     { 
-        route: 'More',
-        label: 'More',
+        route: 'MoreScreen',
+        label: 'MoreScreen',
         icon: IconMore,
         iconFill: IconMoreFill,
-        component: Centres 
+        component: MoreScreen 
     },
 ];
 
