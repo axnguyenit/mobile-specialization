@@ -19,7 +19,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -33,7 +33,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -47,7 +47,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -61,7 +61,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult4}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -75,7 +75,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult5}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -89,7 +89,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -103,7 +103,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -117,7 +117,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult8}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -131,7 +131,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -145,7 +145,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -159,7 +159,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult11}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -173,7 +173,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult12}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -187,7 +187,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -201,7 +201,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult14}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -215,7 +215,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult15}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -229,7 +229,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -243,7 +243,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -257,7 +257,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult18}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -271,7 +271,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult19}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -285,7 +285,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -299,7 +299,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult21}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -313,7 +313,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult22}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -327,7 +327,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -341,7 +341,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult24}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -355,7 +355,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult25}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -369,7 +369,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult26}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -383,7 +383,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult27}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -397,7 +397,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -411,7 +411,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -425,7 +425,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -439,7 +439,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -453,7 +453,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -467,7 +467,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -481,7 +481,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult34}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -495,7 +495,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult35}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -509,7 +509,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult36}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
@@ -523,7 +523,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -537,7 +537,7 @@ function Features(props) {
              <Switch
                  style={styles.checkResult1}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled2 ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled2 ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch2}
                  value={isEnabled2}
@@ -551,7 +551,7 @@ function Features(props) {
             <Switch
                  style={styles.checkResult39}
                  trackColor={{ false: "#E5E5E5", true: "#DB147F" }}
-                 thumbColor={isEnabled ? "#E5E5E" : "#f4f3f4"}
+                 thumbColor={isEnabled ? "#E5E5E5" : "#f4f3f4"}
                  ios_backgroundColor="#3e3e3e"
                  onValueChange={toggleSwitch}
                  value={isEnabled}
