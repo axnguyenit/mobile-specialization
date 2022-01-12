@@ -2,16 +2,20 @@ import React from "react";
 import { createNativeStackNavigator  } from '@react-navigation/native-stack';
 import { CentreDetails } from "../../../screens/centres";
 import { MoreScreen } from "../../../screens/more";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 // import { Login } from "../../account";
 import TabsNavigator from "../tabs";
-import { MoreItem } from "../../../screens/more/MoreItem";
+import {MoreItem} from "../../../screens/more/MoreItem";
+import {Login} from "../../../screens/account/Login";
+import {Text} from "react-native";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
-    const auth = useSelector(state => state.auth)
+    //const auth = useSelector(state => state.auth)
     return (
         <Stack.Navigator
             screenOptions={{ 
