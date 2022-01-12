@@ -4,7 +4,7 @@ import styles from "./styles";
 
 export function MoreItem({navigation}){
     const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
 return(
     <View style={styles.container}>

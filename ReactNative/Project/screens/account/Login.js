@@ -13,10 +13,8 @@ import Icon, { Icons } from '../../components/icons';
 import Input from '../../components/input';
 import Button from '../../components/button';
 
-const Login = (props) => {
-
+export function Login() {
     const [showPassword, setShowPassword] = useState(true)
-
     return (
         <View style={styles.flex1}>
             <View style={styles.container}>
@@ -88,4 +86,3 @@ const Login = (props) => {
     );
 }
 
-export default Login;

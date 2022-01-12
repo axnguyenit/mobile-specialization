@@ -7,11 +7,15 @@ import { MoreScreen } from "../../../screens/more";
 // import { Login } from "../../account";
 import TabsNavigator from "../tabs";
 import {MoreItem} from "../../../screens/more/MoreItem";
+import {Login} from "../../../screens/account/Login";
+import {Text} from "react-native";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
-    // const auth = useSelector(state => state.auth)
+    //const auth = useSelector(state => state.auth)
     return (
         <Stack.Navigator
             screenOptions={{ 
