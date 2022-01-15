@@ -1,45 +1,43 @@
-import React, { useState } from 'react'
-import { View, TouchableOpacity, Text, Image } from 'react-native'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { useNavigation } from '@react-navigation/native'
+import React, { useState } from 'react';
+import { View, TouchableOpacity, Text, Image } from 'react-native';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useNavigation } from '@react-navigation/native';
 
-import styles from './styles'
-import { auth } from '../../firebase/config'
-import success from '../../assets/images/success.png'
-import Icon, { Icons } from '../../components/icons'
-import { Input } from '../../components/input'
-import Button from '../../components/button'
+import styles from './styles';
+import { auth } from '../../firebase/config';
+import success from '../../assets/icons/auth/success.png';
+import Icon, { Icons } from '../../components/icons';
+import { Input } from '../../components/input';
+import Button from '../../components/button';
 
 function Register(props) {
-  const [showPassword, setShowPassword] = useState(true)
-  const [showPassword2, setShowPassword2] = useState(true)
-  const [err, setErr] = useState(null)
-  const navigation = useNavigation()
+  const navigation = useNavigation();
+  const [showPassword, setShowPassword] = useState(true);
+  const [showPassword2, setShowPassword2] = useState(true);
+  const [err, setErr] = useState(null);
   const [user, setUser] = useState({
     email: '',
     password: '',
-    confirmPassword: ''
-  })
+    confirmPassword: '',
+  });
+
   const handleRegister = () => {
     if (user.password === user.confirmPassword) {
       createUserWithEmailAndPassword(auth, user.email, user.password)
         .then((userCredential) => {
-          const user = userCredential.user
+          const user = userCredential.user;
+          user && navigation.navigate('Home');
         })
-        .catch((error) => {
-          console.log('[REGISTER ERROR] => ', error.message)
-          setErr(error.message)
-        })
+        .catch((error) => setErr(error.message));
     } else {
-      setErr('Confirm password not match. Try again!')
+      setErr('Confirm password not match. Try again!');
     }
-  }
+  };
 
   const handleOnChange = (text, name) => {
-    setUser({ ...user, [name]: text })
-    console.log(user)
-    setErr(null)
-  }
+    setUser({ ...user, [name]: text });
+    setErr(null);
+  };
 
   return (
     <View style={styles.flex1}>
@@ -48,7 +46,6 @@ function Register(props) {
           <View style={styles.success}>
             <Image source={success} style={styles.successImg} />
           </View>
-
           <View>
             <View>
               <Input
@@ -58,8 +55,7 @@ function Register(props) {
                 keyboardType="email-address"
               />
             </View>
-
-            <View style={{ marginTop: 20 }}>
+            <View style={styles.mt20}>
               <Input
                 onChangeText={(text) => handleOnChange(text, 'password')}
                 secureTextEntry={showPassword}
@@ -78,8 +74,7 @@ function Register(props) {
                 />
               </TouchableOpacity>
             </View>
-
-            <View style={{ marginTop: 20 }}>
+            <View style={styles.mt20}>
               <Input
                 onChangeText={(text) => handleOnChange(text, 'confirmPassword')}
                 secureTextEntry={showPassword2}
@@ -104,13 +99,7 @@ function Register(props) {
               </View>
             )}
 
-            <View style={{ alignItems: 'flex-end' }}>
-              <TouchableOpacity style={styles.forgotPass}>
-                <Text>Forgot password ?</Text>
-              </TouchableOpacity>
-            </View>
-
-            <View>
+            <View style={styles.mt20}>
               <Button
                 color="#fff"
                 bg="#7B61FF"
@@ -124,7 +113,7 @@ function Register(props) {
                 bg="#DB147F"
                 label="Login"
                 onPress={() => {
-                  navigation.navigate('Login')
+                  navigation.navigate('Login');
                 }}
               />
             </View>
@@ -132,15 +121,10 @@ function Register(props) {
         </View>
 
         <View style={styles.contact1}>
-          <Text style={{ textAlign: 'center' }}>
+          <Text style={styles.textCenter}>
             <Text>If you have trouble logging in to KindiCare CRM, </Text>
             <TouchableOpacity>
-              <Text
-                style={{
-                  textAlign: 'center',
-                  color: '#DB147F'
-                }}
-              >
+              <Text style={styles.highLightDesc}>
                 please contact our Customer Care team.
               </Text>
             </TouchableOpacity>
@@ -148,7 +132,7 @@ function Register(props) {
         </View>
       </View>
     </View>
-  )
+  );
 }
 
-export default Register
+export default Register;

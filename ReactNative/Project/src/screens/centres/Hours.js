@@ -1,20 +1,8 @@
-import React from 'react'
-import {
-  View,
-  TouchableOpacity,
-  Text,
-  Dimensions,
-  ScrollView
-} from 'react-native'
+import React from 'react';
+import { View, ScrollView } from 'react-native';
 
-import styles from './CentreDetailsStyles'
-import { HourItem } from '../../components/centres'
-
-const hours = [
-  {
-    type: 'Normal'
-  }
-]
+import styles from './CentreDetailsStyles';
+import { HourItem } from '../../components/centres';
 
 function Hours(props) {
   return (
@@ -25,7 +13,7 @@ function Hours(props) {
         <HourItem title="School Holidays" />
       </View>
     </ScrollView>
-  )
+  );
 }
 
-export default Hours
+export default Hours;

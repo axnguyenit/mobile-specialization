@@ -1,43 +1,44 @@
-import React, { useState, useEffect } from 'react'
-import { View, TouchableOpacity, Text, Image } from 'react-native'
-import { auth } from '../../firebase/config'
-import { useNavigation } from '@react-navigation/native'
-import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
+import React, { useState, useEffect } from 'react';
+import { View, TouchableOpacity, Text, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 
-import styles from './styles'
-import success from '../../assets/images/success.png'
-import Icon, { Icons } from '../../components/icons'
-import { Input } from '../../components/input'
-import Button from '../../components/button'
+import { auth } from '../../firebase/config';
+import styles from './styles';
+import success from '../../assets/icons/auth/success.png';
+import Icon, { Icons } from '../../components/icons';
+import { Input } from '../../components/input';
+import Button from '../../components/button';
 
 function Login(props) {
-  const [showPassword, setShowPassword] = useState(true)
+  const navigation = useNavigation();
+  const [showPassword, setShowPassword] = useState(true);
+  const [err, setErr] = useState(null);
   const [user, setUser] = useState({
     email: '',
-    password: ''
-  })
-  const navigation = useNavigation()
+    password: '',
+  });
 
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, user.email, user.password)
       .then((userCredential) => {
-        const user = userCredential.user
-        if (user) navigation.navigate('Home')
+        const user = userCredential.user;
+        user && navigation.navigate('Home');
       })
-      .catch((error) => console.log('[LOGIN ERROR] => ', error.massage))
-  }
+      .catch((error) => setErr(error.message));
+  };
 
   const handleOnChange = (text, name) => {
-    setUser({ ...user, [name]: text })
-    // setErr("")
-  }
+    setUser({ ...user, [name]: text });
+    setErr(null);
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) navigation.navigate('Home')
-    })
-    return unsubscribe
-  }, [])
+      user && navigation.navigate('Home');
+    });
+    return unsubscribe;
+  }, []);
 
   return (
     <View style={styles.flex1}>
@@ -57,7 +58,7 @@ function Login(props) {
               />
             </View>
 
-            <View style={{ marginTop: 20 }}>
+            <View style={styles.mt20}>
               <Input
                 onChangeText={(text) => handleOnChange(text, 'password')}
                 secureTextEntry={showPassword}
@@ -76,13 +77,21 @@ function Login(props) {
                 />
               </TouchableOpacity>
             </View>
-
-            <View style={{ alignItems: 'flex-end' }}>
-              <TouchableOpacity style={styles.forgotPass}>
+            {err && (
+              <View>
+                <Text style={styles.warning}>{err}</Text>
+              </View>
+            )}
+            <View style={styles.forgotPassLink}>
+              <TouchableOpacity
+                style={styles.forgotPass}
+                onPress={() => {
+                  navigation.navigate('ForgotPassword');
+                }}
+              >
                 <Text>Forgot password ?</Text>
               </TouchableOpacity>
             </View>
-
             <View>
               <Button
                 color="#fff"
@@ -97,23 +106,17 @@ function Login(props) {
                 bg="#7B61FF"
                 label="Register"
                 onPress={() => {
-                  navigation.navigate('Register')
+                  navigation.navigate('Register');
                 }}
               />
             </View>
           </View>
         </View>
-
         <View style={styles.contact}>
-          <Text style={{ textAlign: 'center' }}>
+          <Text style={styles.textCenter}>
             <Text>If you have trouble logging in to KindiCare CRM, </Text>
             <TouchableOpacity>
-              <Text
-                style={{
-                  textAlign: 'center',
-                  color: '#DB147F'
-                }}
-              >
+              <Text style={styles.highLightDesc}>
                 please contact our Customer Care team.
               </Text>
             </TouchableOpacity>
@@ -121,6 +124,6 @@ function Login(props) {
         </View>
       </View>
     </View>
-  )
+  );
 }
-export default Login
+export default Login;

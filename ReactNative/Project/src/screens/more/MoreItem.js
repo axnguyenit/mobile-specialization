@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
   Switch,
   TouchableOpacity,
   Image,
-  ScrollView
-} from 'react-native'
-import { signOut } from 'firebase/auth'
-import { useNavigation } from '@react-navigation/native'
+  ScrollView,
+} from 'react-native';
+import { signOut } from 'firebase/auth';
+import { useNavigation } from '@react-navigation/native';
 
-import { auth } from '../../firebase/config'
-import styles from './styles'
+import { auth } from '../../firebase/config';
+import styles from './styles';
 
 const arr = [
   'About us',
@@ -23,23 +23,23 @@ const arr = [
   'FAQ',
   'Term & Conditions',
   'Privacy Policy',
-  'Feedback & Support'
-]
+  'Feedback & Support',
+];
 
 export function MoreItem() {
-  const [isEnabled, setIsEnabled] = useState(false)
-  const navigation = useNavigation()
-  const toggleSwitch = () => setIsEnabled((previousState) => !previousState)
+  const [isEnabled, setIsEnabled] = useState(false);
+  const navigation = useNavigation();
+  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
-        navigation.navigate('Login')
+        navigation.navigate('Login');
       })
       .catch((error) => {
-        console.log(error)
-      })
-  }
+        console.log(error);
+      });
+  };
 
   return (
     <View style={styles.container}>
@@ -67,7 +67,7 @@ export function MoreItem() {
             <Text style={styles.moreDetailTitle}>Notifications</Text>
             <Switch
               style={styles.switchNotice}
-              trackColor={{ false: '#F7F8F9', true: '#DB147F' }}
+              trackColor={{ false: '#BEBEBE', true: '#DB147F' }}
               thumbColor={isEnabled ? '#FFF ' : '#FFF'}
               ios_backgroundColor="#DB147F"
               onValueChange={toggleSwitch}
@@ -98,5 +98,5 @@ export function MoreItem() {
         <Text style={styles.height} />
       </ScrollView>
     </View>
-  )
+  );
 }

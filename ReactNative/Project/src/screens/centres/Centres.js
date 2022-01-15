@@ -1,55 +1,54 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react'
-import { View, TouchableOpacity, Text, Image, ScrollView } from 'react-native'
-import { BottomSheet } from 'react-native-btr'
+import React, { useState } from 'react';
+import { View, TouchableOpacity, Text, Image, ScrollView } from 'react-native';
+import { BottomSheet } from 'react-native-btr';
 
-import styles from './CentresStyles'
-import Icon, { Icons } from '../../components/icons'
-import { InputSearch } from '../../components/input'
-import { CentreCard } from '../../components/card'
-import { SelectCentre } from '../../components/bottom-sheet'
-import IconCentre from '../../assets/images/ic-centre.png'
-import IconCentre2 from '../../assets/images/ic-centre2.png'
-import IconMap from '../../assets/images/ic-map.png'
-import IconDollar from '../../assets/images/ic-dollar.png'
-import IconWaitlist from '../../assets/images/ic-waitlist.png'
-import IconFilter from '../../assets/images/ic-filter.png'
+import styles from './CentresStyles';
+import Icon, { Icons } from '../../components/icons';
+import { InputSearch } from '../../components/input';
+import { CentreCard } from '../../components/card';
+import { SelectCentre } from '../../components/bottom-sheet';
+import IconCentre from '../../assets/icons/centres/ic-centre1.png';
+import IconCentre2 from '../../assets/icons/centres/ic-centre2.png';
+import IconMap from '../../assets/icons/centres/ic-map.png';
+import IconDollar from '../../assets/icons/centres/ic-dollar.png';
+import IconWaitlist from '../../assets/icons/centres/ic-waitlist.png';
+import IconFilter from '../../assets/icons/centres/ic-filter.png';
 
 const items = [
   {
     title: 'Total Centres',
     content: '122',
     icon: IconCentre2,
-    color: '#FFF0FB'
+    color: '#FFF0FB',
   },
   {
     title: 'Total Places',
     content: '3200',
     icon: IconMap,
-    color: '#FFF4EC'
+    color: '#FFF4EC',
   },
   {
     title: 'Est. Earning',
     content: '$3,465,000',
     icon: IconDollar,
-    color: '#E9F4FF'
+    color: '#E9F4FF',
   },
   {
     title: 'Waitlist Value',
     content: '$3,465',
     icon: IconWaitlist,
-    color: '#FEEFEF'
-  }
-]
+    color: '#FEEFEF',
+  },
+];
 
 const Centres = (props) => {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
 
   const toggleVisibleBottomSheet = () => {
-    setVisible(!visible)
-  }
+    setVisible(!visible);
+  };
   return (
-    <View style={[styles.flex1, { backgroundColor: '#E5E5E5' }]}>
-      {/* <View style={styles.container}> */}
+    <View style={[styles.flex1, styles.bg]}>
       <View style={styles.header}>
         <View style={styles.row}>
           <Image source={IconCentre} style={styles.headerImg} />
@@ -57,16 +56,7 @@ const Centres = (props) => {
             style={styles.row}
             onPress={toggleVisibleBottomSheet}
           >
-            <Text
-              style={{
-                marginHorizontal: 10,
-                fontWeight: 'bold',
-                color: '#FFF'
-              }}
-            >
-              All Centres
-            </Text>
-
+            <Text style={styles.headingSelect}>All Centres</Text>
             <Icon
               type={Icons.Feather}
               name="chevron-down"
@@ -88,37 +78,32 @@ const Centres = (props) => {
           horizontal
           showsHorizontalScrollIndicator={false}
         >
-          {items.map((item, index) => (
-            <View key={index} style={styles.totalCard}>
-              <View style={styles.row}>
-                <View style={[styles.imgArea, { backgroundColor: item.color }]}>
-                  <Image source={item.icon} style={styles.cardImg} />
+          <View style={[styles.row, styles.pr20]}>
+            {items.map((item, index) => (
+              <View key={index} style={styles.totalCard}>
+                <View style={styles.row}>
+                  <View
+                    style={[styles.imgArea, { backgroundColor: item.color }]}
+                  >
+                    <Image source={item.icon} style={styles.cardImg} />
+                  </View>
+                  <Text>{item.title}</Text>
                 </View>
-                <Text>{item.title}</Text>
+                <View>
+                  <Text style={styles.value}>{item.content}</Text>
+                </View>
               </View>
-              <View>
-                <Text
-                  style={{
-                    fontSize: 22,
-                    fontWeight: 'bold',
-                    marginTop: 5
-                  }}
-                >
-                  {item.content}
-                </Text>
-              </View>
-            </View>
-          ))}
-          <View style={{ width: 20 }} />
+            ))}
+          </View>
         </ScrollView>
       </View>
       {/* End Total Card */}
 
       {/* Centre Card */}
-      <View style={{ paddingBottom: 250 }}>
-        <ScrollView>
+      <ScrollView>
+        <View style={styles.pb50}>
           <View style={[styles.row, styles.searchBox]}>
-            <View style={{ width: '82%' }}>
+            <View style={styles.inputSearch}>
               <InputSearch placeholder="Search Centre Name" />
             </View>
             <TouchableOpacity style={styles.filter}>
@@ -126,14 +111,14 @@ const Centres = (props) => {
             </TouchableOpacity>
           </View>
 
-          <View style={{ paddingHorizontal: 15 }}>
+          <View style={styles.px15}>
             <CentreCard />
             <CentreCard />
             <CentreCard />
             <CentreCard />
           </View>
-        </ScrollView>
-      </View>
+        </View>
+      </ScrollView>
       {/* End Centre Card */}
 
       {/* Bottom Sheet */}
@@ -149,7 +134,7 @@ const Centres = (props) => {
       {/* End Bottom Sheet */}
       {/* </View> */}
     </View>
-  )
-}
+  );
+};
 
-export default Centres
+export default Centres;

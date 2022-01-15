@@ -4,9 +4,9 @@ import {
   addDoc,
   updateDoc,
   deleteDoc,
-  doc
-} from 'firebase/firestore'
-import { db } from './services'
+  doc,
+} from 'firebase/firestore';
+import { db } from './services';
 
 const centreDetails = {
   summary: 'summary',
@@ -15,5 +15,5 @@ const centreDetails = {
   services: 'services',
   features: 'features',
   rating: 'rating',
-  marketing: 'marketing'
-}
+  marketing: 'marketing',
+};

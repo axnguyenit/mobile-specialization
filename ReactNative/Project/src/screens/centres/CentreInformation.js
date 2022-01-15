@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 import {
   View,
   TouchableOpacity,
   Text,
   Dimensions,
-  ScrollView
-} from 'react-native'
+  ScrollView,
+} from 'react-native';
 
-import styles from './CentreDetailsStyles'
+import styles from './CentreDetailsStyles';
 
 function CentreInformation(props) {
   return (
@@ -45,7 +45,7 @@ function CentreInformation(props) {
         </View>
       </View>
     </ScrollView>
-  )
+  );
 }
 
-export default CentreInformation
+export default CentreInformation;

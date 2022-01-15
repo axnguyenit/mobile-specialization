@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import {
   View,
   TouchableOpacity,
   Text,
   Dimensions,
-  ScrollView
-} from 'react-native'
-import { TabView, SceneMap } from 'react-native-tab-view'
+  ScrollView,
+} from 'react-native';
+import { TabView, SceneMap } from 'react-native-tab-view';
 
-import styles from './CentreDetailsStyles'
-import Header from '../../components/header'
-import Summary from './Summary'
-import CentreInformation from './CentreInformation'
-import Hours from './Hours'
-import Services from './Services'
-import Features from './Features'
-import RatingsAndReviews from './RatingsAndReviews'
-import Marketing from './Marketing'
+import styles from './CentreDetailsStyles';
+import Header from '../../components/header';
+import Summary from './Summary';
+import CentreInformation from './CentreInformation';
+import Hours from './Hours';
+import Services from './Services';
+import Features from './Features';
+import RatingsAndReviews from './RatingsAndReviews';
+import Marketing from './Marketing';
 
-const initialLayout = { width: Dimensions.get('window').width }
+const initialLayout = { width: Dimensions.get('window').width };
 
 const renderScene = SceneMap({
   summary: Summary,
@@ -27,8 +27,8 @@ const renderScene = SceneMap({
   services: Services,
   features: Features,
   ratingsAndReviews: RatingsAndReviews,
-  marketing: Marketing
-})
+  marketing: Marketing,
+});
 
 const routes = [
   { key: 'summary', title: 'Summary' },
@@ -37,21 +37,21 @@ const routes = [
   { key: 'services', title: 'Services' },
   { key: 'features', title: 'Features' },
   { key: 'ratingsAndReviews', title: 'Ratings and Reviews' },
-  { key: 'marketing', title: 'Marketing' }
-]
+  { key: 'marketing', title: 'Marketing' },
+];
 
 const CentreDetails = (props) => {
-  const [index, setIndex] = useState(0)
-  const [bg, setBg] = useState([])
+  const [index, setIndex] = useState(0);
+  const [bg, setBg] = useState([]);
 
   const activeTab = () => {
-    const bg = routes.map((e, i) => (i === index ? '#FFF' : '#E5E5E5'))
-    setBg(bg)
-  }
+    const bg = routes.map((e, i) => (i === index ? '#FFF' : '#E5E5E5'));
+    setBg(bg);
+  };
 
   useEffect(() => {
-    activeTab()
-  }, [index])
+    activeTab();
+  }, [index]);
 
   const renderTabBar = () => {
     return (
@@ -68,8 +68,8 @@ const CentreDetails = (props) => {
           ))}
         </ScrollView>
       </View>
-    )
-  }
+    );
+  };
 
   return (
     <View style={styles.flex1}>
@@ -80,10 +80,11 @@ const CentreDetails = (props) => {
         onIndexChange={setIndex}
         initialLayout={initialLayout}
         renderTabBar={renderTabBar}
+        swipeEnabled={false}
         style={styles.container}
       />
     </View>
-  )
-}
+  );
+};
 
-export default CentreDetails
+export default CentreDetails;

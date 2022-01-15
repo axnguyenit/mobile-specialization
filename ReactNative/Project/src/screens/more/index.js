@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { View, Text, TouchableOpacity, Image } from 'react-native'
-import styles from './styles'
+import React, { useState, useEffect } from 'react';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
+import styles from './styles';
+import { auth } from '../../firebase/config';
 
 export function MoreScreen({ navigation }) {
   return (
@@ -19,8 +20,8 @@ export function MoreScreen({ navigation }) {
                 source={require('../../assets/images/user-avatar.png')}
               />
               <View style={styles.rightItem}>
-                <Text style={styles.name}>Jane Cooper</Text>
-                <Text style={styles.rule}>Provider User (Admin)</Text>
+                <Text style={styles.name}>Admin</Text>
+                <Text style={styles.rule}>{auth.currentUser.email}</Text>
               </View>
             </View>
             <Image
@@ -31,5 +32,5 @@ export function MoreScreen({ navigation }) {
         </View>
       </TouchableOpacity>
     </View>
-  )
+  );
 }

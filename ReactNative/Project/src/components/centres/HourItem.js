@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import {
   View,
   TouchableOpacity,
   Text,
   Dimensions,
-  ScrollView
-} from 'react-native'
+  ScrollView,
+} from 'react-native';
 
-import styles from './HourItemStyles'
+import styles from './styles/HourItemStyles';
 
 const HourItem = ({ title }) => {
   return (
@@ -45,7 +45,7 @@ const HourItem = ({ title }) => {
         </View>
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default HourItem
+export default HourItem;
