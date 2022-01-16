@@ -1,5 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
-const { height, width } = Dimensions.get('window');
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   flex1: {
@@ -70,7 +69,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingBottom: 15,
   },
-  inPutSearch: {
+  inputSearch: {
     width: '82%',
   },
   filter: {

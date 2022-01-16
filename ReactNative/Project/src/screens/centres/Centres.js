@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, TouchableOpacity, Text, Image, ScrollView } from 'react-native';
 import { BottomSheet } from 'react-native-btr';
 
+import { centresStore } from '../../firebase/services';
 import styles from './CentresStyles';
 import Icon, { Icons } from '../../components/icons';
 import { InputSearch } from '../../components/input';
@@ -13,6 +14,8 @@ import IconMap from '../../assets/icons/centres/ic-map.png';
 import IconDollar from '../../assets/icons/centres/ic-dollar.png';
 import IconWaitlist from '../../assets/icons/centres/ic-waitlist.png';
 import IconFilter from '../../assets/icons/centres/ic-filter.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCentres } from '../../redux/centreSlice';
 
 const items = [
   {
@@ -42,11 +45,23 @@ const items = [
 ];
 
 const Centres = (props) => {
+  const dispatch = useDispatch();
+  const { centres, selectedCentreId } = useSelector((state) => state.centres);
   const [visible, setVisible] = useState(false);
 
   const toggleVisibleBottomSheet = () => {
     setVisible(!visible);
   };
+
+  const fetchCentres = async () => {
+    const res = await centresStore.getDocs('centres');
+    res && dispatch(setCentres(res));
+  };
+
+  useEffect(() => {
+    fetchCentres();
+  }, []);
+
   return (
     <View style={[styles.flex1, styles.bg]}>
       <View style={styles.header}>
@@ -56,7 +71,12 @@ const Centres = (props) => {
             style={styles.row}
             onPress={toggleVisibleBottomSheet}
           >
-            <Text style={styles.headingSelect}>All Centres</Text>
+            <Text style={styles.headingSelect}>
+              {selectedCentreId === ''
+                ? 'All Centres'
+                : centres &&
+                  centres.find((centre) => centre.id === selectedCentreId).name}
+            </Text>
             <Icon
               type={Icons.Feather}
               name="chevron-down"
@@ -112,10 +132,10 @@ const Centres = (props) => {
           </View>
 
           <View style={styles.px15}>
-            <CentreCard />
-            <CentreCard />
-            <CentreCard />
-            <CentreCard />
+            {centres &&
+              centres.map((centre) => (
+                <CentreCard key={centre.id} centre={centre} />
+              ))}
           </View>
         </View>
       </ScrollView>

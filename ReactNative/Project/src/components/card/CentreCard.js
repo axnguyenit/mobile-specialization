@@ -9,7 +9,7 @@ import IconWaitList from '../../assets/icons/centres/ic-waitlist2.png';
 import IconKindi from '../../assets/icons/centres/ic-kindi.png';
 import IconService from '../../assets/icons/centres/ic-service.png';
 
-const CentreCard = (props) => {
+const CentreCard = ({centre}) => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
@@ -21,20 +21,20 @@ const CentreCard = (props) => {
       </View>
 
       <View style={styles.cardContent}>
-        <Text style={styles.heading}>Castle Hill Montessori Academy</Text>
+        <Text style={styles.heading}>{centre.name}</Text>
         <View>
           <View style={styles.row}>
             <Image style={styles.icon} source={IconLocation} />
-            <Text>1 Kerrs Road, Castle Hill, NSW 2154</Text>
+            <Text>{centre.location}</Text>
           </View>
           <View style={styles.row}>
             <View style={[styles.row, { width: '55 %' }]}>
               <Image style={styles.icon} source={IconBaby} />
-              <Text>90 children</Text>
+              <Text>{centre.children} children</Text>
             </View>
             <View style={styles.row}>
               <Image style={styles.icon} source={IconWaitList} />
-              <Text>48 waitlisted</Text>
+              <Text>{centre.waitlist} waitlisted</Text>
             </View>
           </View>
           <View style={styles.row}>
@@ -44,7 +44,7 @@ const CentreCard = (props) => {
             </View>
             <View style={styles.row}>
               <Image style={styles.icon} source={IconService} />
-              <Text>4 services</Text>
+              <Text>{centre.services} services</Text>
             </View>
           </View>
         </View>
