@@ -9,9 +9,8 @@ import {
 } from 'react-native';
 import { signOut } from 'firebase/auth';
 import { useNavigation } from '@react-navigation/native';
-
-import { auth } from '../../firebase/config';
 import styles from './styles';
+import { auth } from '../../firebase/config';
 
 const arr = [
   'About us',

@@ -16,6 +16,7 @@ import IconWaitlist from '../../assets/icons/centres/ic-waitlist.png';
 import IconFilter from '../../assets/icons/centres/ic-filter.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCentres } from '../../redux/centreSlice';
+import useFireStore from '../../hooks/useFireStore';
 
 const items = [
   {
@@ -46,21 +47,26 @@ const items = [
 
 const Centres = (props) => {
   const dispatch = useDispatch();
+  const res = useFireStore('centres');
   const { centres, selectedCentreId } = useSelector((state) => state.centres);
   const [visible, setVisible] = useState(false);
+  const [selectedCentre, setSelectedCentre] = useState([]);
 
   const toggleVisibleBottomSheet = () => {
     setVisible(!visible);
   };
 
-  const fetchCentres = async () => {
-    const res = await centresStore.getDocs('centres');
+  useEffect(() => {
     res && dispatch(setCentres(res));
-  };
+  }, [res]);
 
   useEffect(() => {
-    fetchCentres();
-  }, []);
+    let selectedCentre = centres.find(
+      (centre) => centre.id === selectedCentreId
+    );
+    selectedCentre && (selectedCentre = [selectedCentre]);
+    setSelectedCentre(selectedCentre);
+  }, [selectedCentreId]);
 
   return (
     <View style={[styles.flex1, styles.bg]}>
@@ -74,8 +80,7 @@ const Centres = (props) => {
             <Text style={styles.headingSelect}>
               {selectedCentreId === ''
                 ? 'All Centres'
-                : centres &&
-                  centres.find((centre) => centre.id === selectedCentreId).name}
+                : selectedCentre && selectedCentre[0].name}
             </Text>
             <Icon
               type={Icons.Feather}
@@ -132,10 +137,14 @@ const Centres = (props) => {
           </View>
 
           <View style={styles.px15}>
-            {centres &&
-              centres.map((centre) => (
-                <CentreCard key={centre.id} centre={centre} />
-              ))}
+            {selectedCentre
+              ? selectedCentre.map((centre) => (
+                  <CentreCard key={centre.id} centre={centre} />
+                ))
+              : centres &&
+                centres.map((centre) => (
+                  <CentreCard key={centre.id} centre={centre} />
+                ))}
           </View>
         </View>
       </ScrollView>

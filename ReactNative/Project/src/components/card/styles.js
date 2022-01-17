@@ -39,11 +39,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   kindi: {
-    backgroundColor: '#E9F4FF',
     paddingHorizontal: 8,
     paddingVertical: 6,
-    color: '#32A4FC',
     borderRadius: 6,
+    textTransform: 'capitalize',
+  },
+  w60: {
+    width: '60%',
   },
 });
 
