@@ -1,24 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, ScrollView } from 'react-native';
+import { useRoute } from '@react-navigation/native';
 
 import styles from './CentreDetailsStyles';
 import { FeatureItem } from '../../components/centres';
-import features from '../../fake-db/centre-details/features';
+import useFireStore from '../../hooks/useFireStore';
+import { centreDetails } from '../../firebase/services';
+import featuresIcon from '../../fake-db/centre-details/features';
+
 function Features(props) {
+  const route = useRoute();
+  const featureList = useFireStore(
+    centreDetails.features,
+    route.params.centreId
+  );
+  featureList && featureList.sort((a, b) => a.stt - b.stt);
+  featureList &&
+    featureList.map((item, i) => (item.icon = featuresIcon[i].icon));
+
   // const [isEnabled, setIsEnabled] = useState(false);
   // const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   return (
     <ScrollView style={styles.tabView}>
       <View style={styles.features}>
-        {features &&
-          features.map((item, i) => (
-            <FeatureItem
-              key={i}
-              iconImg={item.icon}
-              label={item.label}
-              status
-              onValueChange
-            />
+        {featureList &&
+          featureList.map((feature) => (
+            <FeatureItem key={feature.id} feature={feature} />
           ))}
       </View>
     </ScrollView>

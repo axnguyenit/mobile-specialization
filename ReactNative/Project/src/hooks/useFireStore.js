@@ -1,29 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { collection, doc, onSnapshot, query } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
+import { collection, doc, onSnapshot, query, where } from 'firebase/firestore';
 import { db } from '../firebase/config';
 
-function useFireStore(collect, id) {
+function useFireStore(collect, centreId) {
   const [documents, setDocuments] = useState([]);
 
   useEffect(() => {
-    let unsubscribe;
-    if (id) {
-      unsubscribe = onSnapshot(doc(db, collect, id), (doc) => {
-        const data = { ...doc.data(), id: doc.id };
-        setDocuments(data);
-      });
-    } else {
-      const q = query(collection(db, collect));
-      unsubscribe = onSnapshot(q, (querySnapshot) => {
-        const data = querySnapshot.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
-        setDocuments(data);
-      });
-    }
+    const q = centreId
+      ? query(collection(db, collect), where('centreId', '==', centreId))
+      : query(collection(db, collect));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const data = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setDocuments(data);
+    });
     return unsubscribe;
-  }, [collect, id]);
+  }, [collect, centreId]);
 
   return documents;
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, TouchableOpacity, Text, Image, ScrollView } from 'react-native';
 import { BottomSheet } from 'react-native-btr';
 
@@ -9,6 +9,9 @@ import IconCentre from '../../assets/icons/centres/ic-centre1.png';
 import IconCentre2 from '../../assets/icons/dashboard/ic-centre.png';
 import IconChart from '../../assets/icons/dashboard/ic-chart.png';
 import IconFile from '../../assets/icons/dashboard/ic-booking.png';
+import useFireStore from '../../hooks/useFireStore';
+import { useDispatch } from 'react-redux';
+import { setCentres } from '../../redux/centreSlice';
 
 const items = [
   {
@@ -50,11 +53,18 @@ const items = [
 ];
 
 const Dashboard = (props) => {
+  const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
+  const centres = useFireStore('centres');
 
   const toggleVisibleBottomSheet = () => {
     setVisible(!visible);
   };
+
+  useEffect(() => {
+    centres && dispatch(setCentres(centres));
+  }, [centres]);
+
   return (
     <View style={[styles.flex1]}>
       <View style={styles.header}>
@@ -68,15 +78,15 @@ const Dashboard = (props) => {
 
             <Icon
               type={Icons.Feather}
-              name="chevron-down"
+              name='chevron-down'
               size={22}
-              color="#FFF"
+              color='#FFF'
             />
           </TouchableOpacity>
         </View>
 
         <TouchableOpacity>
-          <Icon type={Icons.Entypo} name="add-to-list" size={22} color="#FFF" />
+          <Icon type={Icons.Entypo} name='add-to-list' size={22} color='#FFF' />
         </TouchableOpacity>
       </View>
 

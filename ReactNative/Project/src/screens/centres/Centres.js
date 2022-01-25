@@ -14,9 +14,7 @@ import IconMap from '../../assets/icons/centres/ic-map.png';
 import IconDollar from '../../assets/icons/centres/ic-dollar.png';
 import IconWaitlist from '../../assets/icons/centres/ic-waitlist.png';
 import IconFilter from '../../assets/icons/centres/ic-filter.png';
-import { useDispatch, useSelector } from 'react-redux';
-import { setCentres } from '../../redux/centreSlice';
-import useFireStore from '../../hooks/useFireStore';
+import { useSelector } from 'react-redux';
 
 const items = [
   {
@@ -46,8 +44,6 @@ const items = [
 ];
 
 const Centres = (props) => {
-  const dispatch = useDispatch();
-  const res = useFireStore('centres');
   const { centres, selectedCentreId } = useSelector((state) => state.centres);
   const [visible, setVisible] = useState(false);
   const [selectedCentre, setSelectedCentre] = useState([]);
@@ -55,10 +51,6 @@ const Centres = (props) => {
   const toggleVisibleBottomSheet = () => {
     setVisible(!visible);
   };
-
-  useEffect(() => {
-    res && dispatch(setCentres(res));
-  }, [res]);
 
   useEffect(() => {
     let selectedCentre = centres.find(
@@ -84,15 +76,15 @@ const Centres = (props) => {
             </Text>
             <Icon
               type={Icons.Feather}
-              name="chevron-down"
+              name='chevron-down'
               size={22}
-              color="#FFF"
+              color='#FFF'
             />
           </TouchableOpacity>
         </View>
 
         <TouchableOpacity>
-          <Icon type={Icons.Entypo} name="add-to-list" size={22} color="#FFF" />
+          <Icon type={Icons.Entypo} name='add-to-list' size={22} color='#FFF' />
         </TouchableOpacity>
       </View>
 
@@ -129,7 +121,7 @@ const Centres = (props) => {
         <View style={styles.pb50}>
           <View style={[styles.row, styles.searchBox]}>
             <View style={styles.inputSearch}>
-              <InputSearch placeholder="Search Centre Name" />
+              <InputSearch placeholder='Search Centre Name' />
             </View>
             <TouchableOpacity style={styles.filter}>
               <Image source={IconFilter} style={styles.cardImg} />

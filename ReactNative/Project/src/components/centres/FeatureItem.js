@@ -2,21 +2,20 @@ import React from 'react';
 import { View, Text, Switch, Image } from 'react-native';
 import styles from './styles/FeatureItemStyles';
 
-function FeatureItem(props) {
-  const { iconImg, label, onValueChange, status } = props;
+function FeatureItem({ feature }) {
   return (
     <View style={styles.featureItem}>
       <View style={styles.row}>
-        <Image style={styles.featureIcon} source={iconImg} />
-        <Text style={styles.featureTitle}>{label}</Text>
+        <Image style={styles.featureIcon} source={feature.icon} />
+        <Text style={styles.featureTitle}>{feature.name}</Text>
       </View>
       <Switch
         style={styles.featureSwitch}
         trackColor={{ false: '#BEBEBE', true: '#DB147F' }}
-        thumbColor={status ? '#E5E5E5' : '#f4f3f4'}
-        ios_backgroundColor="#3e3e3e"
-        onValueChange={() => onValueChange}
-        value={status}
+        thumbColor={feature.status ? '#E5E5E5' : '#f4f3f4'}
+        ios_backgroundColor='#3e3e3e'
+        onValueChange
+        value={feature.status}
       />
     </View>
   );

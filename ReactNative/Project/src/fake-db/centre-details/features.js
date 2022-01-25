@@ -1,4 +1,4 @@
-const features = [
+const featuresIcon = [
   {
     icon: require('../../assets/icons/features/ic-waitlist.png'),
     label: 'Waitlist',
@@ -157,4 +157,4 @@ const features = [
   },
 ];
 
-export default features;
+export default featuresIcon;

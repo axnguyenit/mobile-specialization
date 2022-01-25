@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { BottomSheet } from 'react-native-btr';
+import { useRoute } from '@react-navigation/native';
+
 import styles from './CentreDetailsStyles';
 import { MarketingItem } from '../../components/marketing';
-import marketing from '../../fake-db/centre-details/marketing';
 import { MarketingInfo } from '../../components/bottom-sheet';
+import useFireStore from '../../hooks/useFireStore';
+import { centreDetails } from '../../firebase/services';
 
 function Marketing(props) {
+  const route = useRoute();
   const [visible, setVisible] = useState(false);
-  const [title, setTitle] = useState('');
+  const [marketing, setMarketing] = useState('');
+  const marketingList = useFireStore(
+    centreDetails.marketing,
+    route.params.centreId
+  );
 
   const toggleVisibleBottomSheet = (id = -1) => {
     if (id !== -1) {
-      const item = marketing.find((item) => item.id === id);
-      if (item) setTitle(item.label);
+      const item = marketingList.find((item) => item.id === id);
+      item && setMarketing(item);
     }
     setVisible(!visible);
   };
@@ -21,12 +29,13 @@ function Marketing(props) {
   return (
     <>
       <ScrollView style={styles.marketing}>
-        {marketing &&
-          marketing.map((item, i) => (
+        {marketingList &&
+          marketingList.map((item) => (
             <MarketingItem
-              key={i}
-              label={item.label}
+              key={item.id}
+              label={item.name}
               price={item.price}
+              status={item.status}
               onPress={() => toggleVisibleBottomSheet(item.id)}
             />
           ))}
@@ -38,7 +47,10 @@ function Marketing(props) {
           onBackButtonPress={toggleVisibleBottomSheet}
           onBackdropPress={toggleVisibleBottomSheet}
         >
-          <MarketingInfo title={title} onPress={toggleVisibleBottomSheet} />
+          <MarketingInfo
+            marketing={marketing}
+            onPress={toggleVisibleBottomSheet}
+          />
         </BottomSheet>
       </View>
     </>

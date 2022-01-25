@@ -8,6 +8,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  lh20: {
+    lineHeight: 20,
+  },
   container: {
     backgroundColor: '#E5E5E5',
   },

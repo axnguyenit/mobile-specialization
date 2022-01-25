@@ -43,6 +43,7 @@ const CentreCard = ({ centre }) => {
       default:
         break;
     }
+
     return (
       <Text
         style={[
@@ -58,7 +59,9 @@ const CentreCard = ({ centre }) => {
   return (
     <TouchableOpacity
       style={styles.centerCard}
-      onPress={() => navigation.navigate('CentreDetails')}
+      onPress={() =>
+        navigation.navigate('CentreDetails', { centreId: centre.id })
+      }
     >
       <View>
         <Image source={CardImage} style={styles.image} />
