@@ -4,7 +4,7 @@ import styles from './styles';
 import IconKindiCare from '../../assets/icons/ratings-reviews/ic-kindi-care.png';
 import Icon, { Icons } from '../icons';
 
-function KindiCareRating(props) {
+function KindiCareRating({ rating }) {
   const [expanded, setExpanded] = useState(false);
   const [icon, setIcon] = useState('chevron-down');
 
@@ -26,12 +26,12 @@ function KindiCareRating(props) {
             )}
           </View>
         </View>
-        <Icon type={Icons.Feather} name={icon} size={22} color="#857E7F" />
+        <Icon type={Icons.Feather} name={icon} size={22} color='#857E7F' />
       </TouchableOpacity>
       {expanded && (
         <View style={styles.ratingExpanded}>
           <View>
-            <Text style={styles.ratingPoint}>8.4</Text>
+            <Text style={styles.ratingPoint}>{rating?.point}</Text>
             <Text style={styles.ratingFeedback}>Very Good</Text>
           </View>
           <View style={styles.ratingChart}>
@@ -61,8 +61,8 @@ function KindiCareRating(props) {
           <View>
             <Text style={styles.ratingDesc}>
               The KindiCare Rating for this service of{' '}
-              <Text style={styles.ratingDescHighLine}>8.4</Text> is lower than
-              the average KindiCare Rating for the area of{' '}
+              <Text style={styles.ratingDescHighLine}>{rating?.point}</Text> is
+              lower than the average KindiCare Rating for the area of{' '}
               <Text style={styles.ratingDescHighLine}>8.6</Text>, and represents
               the good quality of service provided
             </Text>

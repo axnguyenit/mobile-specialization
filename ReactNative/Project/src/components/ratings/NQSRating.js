@@ -6,7 +6,8 @@ import NQSRatingImg from '../../assets/images/ratings-reviews/NQS-image.png';
 import Icon, { Icons } from '../icons';
 import ratings from '../../fake-db/centre-details/ratings';
 
-function NQSRating(props) {
+function NQSRating({ rating }) {
+  console.log(rating);
   const [expanded, setExpanded] = useState(false);
   const [icon, setIcon] = useState('chevron-down');
 
@@ -26,24 +27,24 @@ function NQSRating(props) {
             <Text style={styles.ratingHeaderTitle}>NQS Rating</Text>
             {!expanded && (
               <Text style={styles.ratingFeedbackSmall}>
-                Last reviewed 18 December 2021
+                Last reviewed {rating.createdAt.toDate().toLocaleDateString()}
               </Text>
             )}
           </View>
         </View>
-        <Icon type={Icons.Feather} name={icon} size={22} color="#857E7F" />
+        <Icon type={Icons.Feather} name={icon} size={22} color='#857E7F' />
       </TouchableOpacity>
       {expanded && (
         <View>
           <View style={styles.ratingExpanded}>
             <Image source={NQSRatingImg} style={styles.ratingImgNqs} />
             <Text style={styles.ratingFeedbackSmall}>
-              Last Reviewed 01 December 2019
+              Last Reviewed {rating.createdAt.toDate().toLocaleDateString()}
             </Text>
           </View>
           <View style={styles.ratingINqsList}>
-            {ratings &&
-              ratings.map((item, i) => (
+            {rating?.ratings &&
+              rating?.ratings.map((item, i) => (
                 <View key={i} style={styles.ratingINqsItem}>
                   <Text style={styles.ratingINqsLabel}>{`${i + 1}. ${
                     item.label

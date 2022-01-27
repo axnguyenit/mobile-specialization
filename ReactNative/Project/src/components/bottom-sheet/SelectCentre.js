@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
+import React from 'react';
+import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { InputSearch } from '../input';
 import Icon, { Icons } from '../icons';
 import styles from './styles';
@@ -21,55 +21,52 @@ const SelectCentre = (props) => {
     <View style={styles.viewSelectCentre}>
       <View style={styles.header}>
         <TouchableOpacity style={styles.closeSelectCentre} onPress={onPress}>
-          <Icon type={Icons.Ionicons} name="close" color="#2D1F21" size={24} />
+          <Icon type={Icons.Ionicons} name='close' color='#2D1F21' size={24} />
         </TouchableOpacity>
         <Text style={styles.heading}>Select Centre</Text>
       </View>
       <View>
-        <InputSearch placeholder="Search Centre Name" />
+        <InputSearch placeholder='Search Centre Name' />
       </View>
 
-      <TouchableOpacity
-        onPress={() => handleSelectCentre('')}
-        style={[
-          styles.centreItem,
-          { backgroundColor: selectedCentreId === '' ? '#FFF0FB' : '#FFF' },
-        ]}
-      >
-        <Image source={ImgSuccess} style={styles.imgSelectCentre} />
-        <Text>All Centre</Text>
-
-        <View
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <TouchableOpacity
+          onPress={() => handleSelectCentre('')}
           style={[
-            styles.circle,
-            { borderColor: selectedCentreId === '' ? '#DB147F' : '#ACB2B8' },
+            styles.centreItem,
+            { backgroundColor: selectedCentreId === '' ? '#FFF0FB' : '#FFF' },
           ]}
         >
+          <Image source={ImgSuccess} style={styles.imgSelectCentre} />
+          <Text>All Centre</Text>
+
           <View
             style={[
-              styles.insideCircle,
-              { backgroundColor: selectedCentreId === '' ? '#DB147F' : '#FFF' },
+              styles.circle,
+              { borderColor: selectedCentreId === '' ? '#DB147F' : '#ACB2B8' },
             ]}
-          />
-        </View>
-      </TouchableOpacity>
+          >
+            <View
+              style={[
+                styles.insideCircle,
+                {
+                  backgroundColor: selectedCentreId === '' ? '#DB147F' : '#FFF',
+                },
+              ]}
+            />
+          </View>
+        </TouchableOpacity>
 
-      {centres &&
-        centres.map((centre) => (
-          <CentreItem
-            key={centre.id}
-            centre={centre}
-            selectedCentreId={selectedCentreId}
-            handleSelectCentre={handleSelectCentre}
-          />
-        ))}
-
-      {/* <FlatList
-        style={styles.centres}
-        data={centres}
-        renderItem={CentreItem}
-        keyExtractor={(item) => item.id}
-      /> */}
+        {centres &&
+          centres.map((centre) => (
+            <CentreItem
+              key={centre.id}
+              centre={centre}
+              selectedCentreId={selectedCentreId}
+              handleSelectCentre={handleSelectCentre}
+            />
+          ))}
+      </ScrollView>
     </View>
   );
 };
@@ -82,7 +79,10 @@ const CentreItem = ({ centre, selectedCentreId, handleSelectCentre }) => (
       { backgroundColor: centre.id === selectedCentreId ? '#FFF0FB' : '#FFF' },
     ]}
   >
-    <Image source={ImgSuccess} style={styles.imgSelectCentre} />
+    <Image
+      source={centre?.img ? { uri: centre?.img } : ImgSuccess}
+      style={styles.imgSelectCentre}
+    />
     <Text>{centre.name}</Text>
     <View
       style={[

@@ -3,7 +3,7 @@ const reviews = [
   {
     name: 'Daniel Kim',
     reviewFrom: 'google',
-    stars: 5,
+    stars: 3,
     date: 'Jan 14, 2022',
     avatar: UserAvatar,
     message:

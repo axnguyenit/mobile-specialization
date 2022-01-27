@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     height: 80,
     borderRadius: 8,
     marginRight: 12,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
   },
   summaryIconCollapse: {
     width: 24,
@@ -183,6 +183,16 @@ const styles = StyleSheet.create({
   },
   marketing: {
     paddingHorizontal: 16,
+  },
+  addService: {
+    backgroundColor: '#DB147F',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 12,
+    borderRadius: 8,
+  },
+  white: {
+    color: '#FFF',
   },
 });
 

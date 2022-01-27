@@ -6,11 +6,11 @@ import { HourItem } from '../../components/centres';
 
 function Hours(props) {
   return (
-    <ScrollView>
+    <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.tabView}>
-        <HourItem title="Normal" />
-        <HourItem title="School Term" />
-        <HourItem title="School Holidays" />
+        <HourItem title='Normal' />
+        <HourItem title='School Term' />
+        <HourItem title='School Holidays' />
       </View>
     </ScrollView>
   );

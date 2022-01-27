@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 999,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
     marginRight: 15,
   },
   centres: {

@@ -21,9 +21,10 @@ function Features(props) {
   // const [isEnabled, setIsEnabled] = useState(false);
   // const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   return (
-    <ScrollView style={styles.tabView}>
+    <ScrollView style={styles.tabView} showsVerticalScrollIndicator={false}>
       <View style={styles.features}>
         {featureList &&
+          featureList.length > 0 &&
           featureList.map((feature) => (
             <FeatureItem key={feature.id} feature={feature} />
           ))}

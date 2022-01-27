@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { View, TouchableOpacity, Text, Image, ScrollView } from 'react-native';
 import { BottomSheet } from 'react-native-btr';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 
 import styles from './styles';
 import Icon, { Icons } from '../../components/icons';
@@ -10,7 +12,6 @@ import IconCentre2 from '../../assets/icons/dashboard/ic-centre.png';
 import IconChart from '../../assets/icons/dashboard/ic-chart.png';
 import IconFile from '../../assets/icons/dashboard/ic-booking.png';
 import useFireStore from '../../hooks/useFireStore';
-import { useDispatch } from 'react-redux';
 import { setCentres } from '../../redux/centreSlice';
 
 const items = [
@@ -53,9 +54,12 @@ const items = [
 ];
 
 const Dashboard = (props) => {
-  const dispatch = useDispatch();
-  const [visible, setVisible] = useState(false);
   const centres = useFireStore('centres');
+  const { selectedCentreId } = useSelector((state) => state.centres);
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
+  const [visible, setVisible] = useState(false);
+  const [selectedCentre, setSelectedCentre] = useState([]);
 
   const toggleVisibleBottomSheet = () => {
     setVisible(!visible);
@@ -64,6 +68,14 @@ const Dashboard = (props) => {
   useEffect(() => {
     centres && dispatch(setCentres(centres));
   }, [centres]);
+
+  useEffect(() => {
+    let selectedCentre = centres.find(
+      (centre) => centre.id === selectedCentreId
+    );
+    selectedCentre && (selectedCentre = [selectedCentre]);
+    setSelectedCentre(selectedCentre);
+  }, [selectedCentreId]);
 
   return (
     <View style={[styles.flex1]}>
@@ -74,7 +86,11 @@ const Dashboard = (props) => {
             style={styles.row}
             onPress={toggleVisibleBottomSheet}
           >
-            <Text style={styles.centreName}>Goodstart Early Learning ABC</Text>
+            <Text style={styles.centreName}>
+              {selectedCentreId === ''
+                ? 'All Centre'
+                : selectedCentre && selectedCentre[0]?.name}
+            </Text>
 
             <Icon
               type={Icons.Feather}
@@ -85,12 +101,15 @@ const Dashboard = (props) => {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('AddCentre')}>
           <Icon type={Icons.Entypo} name='add-to-list' size={22} color='#FFF' />
         </TouchableOpacity>
       </View>
 
-      <ScrollView style={styles.cardScroll}>
+      <ScrollView
+        style={styles.cardScroll}
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.cards}>
           {items &&
             items.map((item, i) => (

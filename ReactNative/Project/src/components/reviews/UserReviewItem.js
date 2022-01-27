@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import styles from './styles';
 import { Photos } from '../centres';
-import IconStar from '../../assets/icons/ratings-reviews/ic-star-fill.png';
+import IconStarFill from '../../assets/icons/ratings-reviews/ic-star-fill.png';
+import IconStar from '../../assets/icons/ratings-reviews/ic-star.png';
 
 function UserReviewItem(props) {
   const { review } = props;
@@ -13,7 +14,7 @@ function UserReviewItem(props) {
     let surplus = n % 1;
     n = Math.floor(n / 1);
     while (i < n) {
-      stars.push(<Image source={IconStar} style={styles.reviewItemStar} />);
+      stars.push(<Image source={IconStarFill} style={styles.reviewItemStar} />);
       i++;
     }
     if (surplus) {
@@ -31,10 +32,19 @@ function UserReviewItem(props) {
   return (
     <View>
       <View style={styles.reviewItemHeader}>
-        <Image source={review.avatar} style={styles.reviewItemAvatar} />
+        {!!review?.avatar ? (
+          <Image
+            source={{ uri: review?.avatar }}
+            style={styles.reviewItemAvatar}
+          />
+        ) : (
+          <Text style={styles.reviewItemAvatarChar}>
+            {review?.name.charAt(0)?.toUpperCase()}
+          </Text>
+        )}
         <View>
           <View style={styles.reviewItemInfo}>
-            <Text style={styles.reviewItemName}>{review.name}</Text>
+            <Text style={styles.reviewItemName}>{review?.name}</Text>
             <Text style={styles.reviewItemCircle} />
             {renderStar(review.stars)}
           </View>
@@ -48,18 +58,20 @@ function UserReviewItem(props) {
                 },
               ]}
             >
-              {review.reviewFrom === 'google'
+              {review?.reviewFrom === 'google'
                 ? 'Google Review'
                 : `Kindi's User Review`}
             </Text>
-            <Text style={styles.reviewItemDate}>{review.date}</Text>
+            <Text style={styles.reviewItemDate}>
+              {review?.date.toDate().toLocaleDateString()}
+            </Text>
           </View>
         </View>
       </View>
-      <Text style={styles.reviewItemMessage}>{review.message}</Text>
+      <Text style={styles.reviewItemMessage}>{review?.message}</Text>
 
       <View style={styles.reviewItemPhotos}>
-        <Photos />
+        <Photos photos={review?.photos} />
       </View>
     </View>
   );

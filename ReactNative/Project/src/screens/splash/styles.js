@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     justifyContent: 'center',
     alignItems: 'center',
+    zIndex: 20,
   },
   icon: {
     width: 100,

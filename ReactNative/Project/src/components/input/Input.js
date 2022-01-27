@@ -3,8 +3,15 @@ import { View, Text, TextInput } from 'react-native';
 import styles from './styles';
 
 const Input = (props) => {
-  const { label, placeholder, keyboardType, secureTextEntry, onChangeText } =
-    props;
+  const {
+    value,
+    onBlur,
+    label,
+    placeholder,
+    keyboardType,
+    secureTextEntry,
+    onChangeText,
+  } = props;
   return (
     <View style={styles.formControl}>
       <Text style={styles.label}>{label}</Text>
@@ -13,6 +20,8 @@ const Input = (props) => {
         secureTextEntry={secureTextEntry}
         keyboardType={keyboardType}
         placeholder={placeholder}
+        value={value}
+        onBlur={onBlur}
       />
     </View>
   );

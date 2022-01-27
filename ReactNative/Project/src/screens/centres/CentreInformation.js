@@ -15,11 +15,11 @@ function CentreInformation(props) {
   );
 
   return (
-    <ScrollView style={styles.tabView}>
+    <ScrollView style={styles.tabView} showsVerticalScrollIndicator={false}>
       <View style={styles.tabViewContent}>
         <Text style={styles.infoTitle}>Centre Description</Text>
         <Text style={styles.lh20}>
-          {information && information[0].description}
+          {information && information[0]?.description}
         </Text>
       </View>
 
@@ -29,18 +29,20 @@ function CentreInformation(props) {
           <View style={styles.infoDetails}>
             <Text style={styles.infoName}>Admin Email</Text>
             <Text style={styles.bold}>
-              {information && information[0].adminEmail}
+              {information && information[0]?.adminEmail}
             </Text>
           </View>
           <View style={styles.infoDetails}>
             <Text style={styles.infoName}>Region</Text>
             <Text style={styles.bold}>
-              {information && information[0].region}
+              {information && information[0]?.region}
             </Text>
           </View>
           <View style={styles.infoDetails}>
             <Text style={styles.infoName}>LGA</Text>
-            <Text style={styles.bold}>{information && information[0].lga}</Text>
+            <Text style={styles.bold}>
+              {information && information[0]?.lga}
+            </Text>
           </View>
         </View>
       </View>

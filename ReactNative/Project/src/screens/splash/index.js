@@ -1,12 +1,11 @@
 import React from 'react';
-import { View, Image } from 'react-native';
-import IconSuccess from '../../assets/icons/auth/success.png';
+import { View, ActivityIndicator } from 'react-native';
 import styles from './styles';
 
 function Splash(props) {
   return (
     <View style={styles.container}>
-      <Image source={IconSuccess} style={styles.icon} />
+      <ActivityIndicator style={styles.icon} size='large' color='#DB147F' />
     </View>
   );
 }

@@ -1,8 +1,15 @@
 import React from 'react';
 import { View, Text, Switch, Image } from 'react-native';
+import { centreDetails, centresStore } from '../../firebase/services';
 import styles from './styles/FeatureItemStyles';
 
 function FeatureItem({ feature }) {
+  const handleActiveFeature = async () => {
+    await centresStore.updateDoc(centreDetails.features, feature.id, {
+      status: !feature.status,
+    });
+  };
+
   return (
     <View style={styles.featureItem}>
       <View style={styles.row}>
@@ -14,7 +21,7 @@ function FeatureItem({ feature }) {
         trackColor={{ false: '#BEBEBE', true: '#DB147F' }}
         thumbColor={feature.status ? '#E5E5E5' : '#f4f3f4'}
         ios_backgroundColor='#3e3e3e'
-        onValueChange
+        onValueChange={handleActiveFeature}
         value={feature.status}
       />
     </View>

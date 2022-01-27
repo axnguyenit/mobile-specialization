@@ -73,7 +73,7 @@ const CentreDetails = (props) => {
 
   return (
     <View style={styles.flex1}>
-      <Header />
+      <Header title='Centre Details' />
       <TabView
         navigationState={{ index, routes }}
         renderScene={renderScene}

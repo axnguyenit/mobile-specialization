@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { View, TouchableOpacity, Text, Image, ScrollView } from 'react-native';
 import { BottomSheet } from 'react-native-btr';
+import { useNavigation } from '@react-navigation/native';
 
-import { centresStore } from '../../firebase/services';
 import styles from './CentresStyles';
 import Icon, { Icons } from '../../components/icons';
 import { InputSearch } from '../../components/input';
@@ -16,37 +16,38 @@ import IconWaitlist from '../../assets/icons/centres/ic-waitlist.png';
 import IconFilter from '../../assets/icons/centres/ic-filter.png';
 import { useSelector } from 'react-redux';
 
-const items = [
-  {
-    title: 'Total Centres',
-    content: '122',
-    icon: IconCentre2,
-    color: '#FFF0FB',
-  },
-  {
-    title: 'Total Places',
-    content: '3200',
-    icon: IconMap,
-    color: '#FFF4EC',
-  },
-  {
-    title: 'Est. Earning',
-    content: '$3,465,000',
-    icon: IconDollar,
-    color: '#E9F4FF',
-  },
-  {
-    title: 'Waitlist Value',
-    content: '$3,465',
-    icon: IconWaitlist,
-    color: '#FEEFEF',
-  },
-];
-
 const Centres = (props) => {
+  const navigation = useNavigation();
   const { centres, selectedCentreId } = useSelector((state) => state.centres);
   const [visible, setVisible] = useState(false);
   const [selectedCentre, setSelectedCentre] = useState([]);
+
+  const items = [
+    {
+      title: 'Total Centres',
+      content: centres?.length,
+      icon: IconCentre2,
+      color: '#FFF0FB',
+    },
+    {
+      title: 'Total Places',
+      content: centres?.length,
+      icon: IconMap,
+      color: '#FFF4EC',
+    },
+    {
+      title: 'Est. Earning',
+      content: '$3,465,000',
+      icon: IconDollar,
+      color: '#E9F4FF',
+    },
+    {
+      title: 'Waitlist Value',
+      content: '$3,465',
+      icon: IconWaitlist,
+      color: '#FEEFEF',
+    },
+  ];
 
   const toggleVisibleBottomSheet = () => {
     setVisible(!visible);
@@ -71,7 +72,7 @@ const Centres = (props) => {
           >
             <Text style={styles.headingSelect}>
               {selectedCentreId === ''
-                ? 'All Centres'
+                ? 'All Centre'
                 : selectedCentre && selectedCentre[0].name}
             </Text>
             <Icon
@@ -83,7 +84,7 @@ const Centres = (props) => {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('AddCentre')}>
           <Icon type={Icons.Entypo} name='add-to-list' size={22} color='#FFF' />
         </TouchableOpacity>
       </View>
@@ -117,7 +118,7 @@ const Centres = (props) => {
       {/* End Total Card */}
 
       {/* Centre Card */}
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.pb50}>
           <View style={[styles.row, styles.searchBox]}>
             <View style={styles.inputSearch}>

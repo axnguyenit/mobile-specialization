@@ -1,4 +1,14 @@
-import { collection, getDocs, getDoc, addDoc, doc } from 'firebase/firestore';
+import {
+  collection,
+  getDocs,
+  getDoc,
+  addDoc,
+  doc,
+  updateDoc,
+  query,
+  orderBy,
+  limit,
+} from 'firebase/firestore';
 import { db } from './config';
 
 const centreDetails = {
@@ -7,7 +17,7 @@ const centreDetails = {
   hours: 'hours',
   services: 'services',
   features: 'features',
-  rating: 'rating',
+  ratings: 'ratings',
   marketing: 'marketing',
 };
 
@@ -28,6 +38,24 @@ const centresStore = {
       id: doc.id,
     }));
     return data;
+  },
+
+  updateDoc: async (collect, id, data) => {
+    await updateDoc(doc(db, collect, id), data);
+  },
+
+  getLatestCollection: async (cellect) => {
+    const q = query(
+      collection(db, cellect),
+      orderBy('createdAt', 'desc'),
+      limit(1)
+    );
+
+    const querySnapshot = await getDocs(q);
+    const data = querySnapshot.docs.map((doc) => {
+      return { ...doc.data(), id: doc.id };
+    });
+    return data[0];
   },
 };
 

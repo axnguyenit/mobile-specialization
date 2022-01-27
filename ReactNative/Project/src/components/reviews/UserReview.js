@@ -6,7 +6,8 @@ import Icon, { Icons } from '../icons';
 import UserReviewItem from './UserReviewItem';
 import reviews from '../../fake-db/centre-details/reviews';
 
-function UserReview(props) {
+function UserReview({ userReview }) {
+  const { userList } = userReview;
   const [expanded, setExpanded] = useState(false);
   const [icon, setIcon] = useState('chevron-down');
 
@@ -26,12 +27,12 @@ function UserReview(props) {
             {!expanded && <Text style={styles.reviewFeedbackSmall}>4.5/5</Text>}
           </View>
         </View>
-        <Icon type={Icons.Feather} name={icon} size={22} color="#857E7F" />
+        <Icon type={Icons.Feather} name={icon} size={22} color='#857E7F' />
       </TouchableOpacity>
       {expanded && (
         <ScrollView>
           <View style={styles.reviewExpanded}>
-            {reviews?.map((item, i) => (
+            {userList?.map((item, i) => (
               <UserReviewItem key={i} review={item} />
             ))}
           </View>

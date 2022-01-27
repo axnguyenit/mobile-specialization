@@ -5,7 +5,12 @@ import { auth } from '../../../firebase/config';
 import { onAuthStateChanged } from 'firebase/auth';
 
 import TabsNavigator from '../tabs';
-import { CentreDetails } from '../../../screens/centres';
+import {
+  CentreDetails,
+  AddCentre,
+  AddService,
+  AddMarketing,
+} from '../../../screens/centres';
 import { Login, Register, ForgotPassword } from '../../../screens/account';
 import { MoreScreen } from '../../../screens/more';
 import { MoreItem } from '../../../screens/more/MoreItem';
@@ -27,15 +32,18 @@ const StackNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName="Login"
+      initialRouteName='Login'
     >
-      <Stack.Screen name="Register" component={Register} />
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-      <Stack.Screen name="Home" component={TabsNavigator} />
-      <Stack.Screen name="CentreDetails" component={CentreDetails} />
-      <Stack.Screen name="MoreScreen" component={MoreScreen} />
-      <Stack.Screen name="MoreItem" component={MoreItem} />
+      <Stack.Screen name='Register' component={Register} />
+      <Stack.Screen name='Login' component={Login} />
+      <Stack.Screen name='ForgotPassword' component={ForgotPassword} />
+      <Stack.Screen name='Home' component={TabsNavigator} />
+      <Stack.Screen name='AddCentre' component={AddCentre} />
+      <Stack.Screen name='AddService' component={AddService} />
+      <Stack.Screen name='AddMarketing' component={AddMarketing} />
+      <Stack.Screen name='CentreDetails' component={CentreDetails} />
+      <Stack.Screen name='MoreScreen' component={MoreScreen} />
+      <Stack.Screen name='MoreItem' component={MoreItem} />
     </Stack.Navigator>
   );
 };

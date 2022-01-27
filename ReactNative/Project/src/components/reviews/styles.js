@@ -49,6 +49,18 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     marginRight: 12,
   },
+  reviewItemAvatarChar: {
+    width: 40,
+    height: 40,
+    borderRadius: 999,
+    marginRight: 12,
+    backgroundColor: '#DB147F',
+    color: '#FFF',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 20,
+    lineHeight: 40,
+  },
   reviewItemInfo: {
     flexDirection: 'row',
     alignItems: 'center',

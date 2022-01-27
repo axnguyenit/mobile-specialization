@@ -9,23 +9,27 @@ import success from '../../assets/icons/auth/success.png';
 import Icon, { Icons } from '../../components/icons';
 import { Input } from '../../components/input';
 import Button from '../../components/button';
+import Splash from '../splash';
 
 function Login(props) {
   const navigation = useNavigation();
   const [showPassword, setShowPassword] = useState(true);
   const [err, setErr] = useState(null);
+  const [disabled, setDisabled] = useState(false);
   const [user, setUser] = useState({
     email: '',
     password: '',
   });
 
   const handleLogin = () => {
+    setDisabled(true);
     signInWithEmailAndPassword(auth, user.email, user.password)
       .then((userCredential) => {
         const user = userCredential.user;
         user && navigation.navigate('Home');
       })
       .catch((error) => setErr(error.message));
+    setDisabled(false);
   };
 
   const handleOnChange = (text, name) => {
@@ -42,6 +46,7 @@ function Login(props) {
 
   return (
     <View style={styles.flex1}>
+      {disabled && <Splash />}
       <View style={styles.container}>
         <View>
           <View style={styles.success}>
@@ -52,9 +57,9 @@ function Login(props) {
             <View>
               <Input
                 onChangeText={(text) => handleOnChange(text, 'email')}
-                label="Email"
-                placeholder="Enter your email"
-                keyboardType="email-address"
+                label='Email'
+                placeholder='Enter your email'
+                keyboardType='email-address'
               />
             </View>
 
@@ -62,8 +67,8 @@ function Login(props) {
               <Input
                 onChangeText={(text) => handleOnChange(text, 'password')}
                 secureTextEntry={showPassword}
-                label="Password"
-                placeholder="Enter your password"
+                label='Password'
+                placeholder='Enter your password'
               />
               <TouchableOpacity
                 style={styles.passwordIcon}
@@ -72,7 +77,7 @@ function Login(props) {
                 <Icon
                   type={Icons.Ionicons}
                   name={showPassword ? 'eye-outline' : 'eye-off-outline'}
-                  color="#5C595A"
+                  color='#5C595A'
                   size={20}
                 />
               </TouchableOpacity>
@@ -94,17 +99,18 @@ function Login(props) {
             </View>
             <View>
               <Button
-                color="#fff"
-                bg="#DB147F"
-                label="Login"
+                color='#fff'
+                bg='#DB147F'
+                label='Login'
                 onPress={handleLogin}
+                disabled={disabled}
               />
             </View>
             <View style={styles.btnRegister}>
               <Button
-                color="#fff"
-                bg="#7B61FF"
-                label="Register"
+                color='#fff'
+                bg='#7B61FF'
+                label='Register'
                 onPress={() => {
                   navigation.navigate('Register');
                 }}

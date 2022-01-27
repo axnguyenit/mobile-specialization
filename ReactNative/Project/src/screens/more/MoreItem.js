@@ -45,7 +45,7 @@ export function MoreItem() {
       <View style={styles.header}>
         <Text style={styles.heading}>More</Text>
       </View>
-      <ScrollView style={styles.bg}>
+      <ScrollView style={styles.bg} showsVerticalScrollIndicator={false}>
         <View style={styles.mainItem}>
           <TouchableOpacity style={styles.moreDetailItem}>
             <Text style={styles.moreDetailTitle}>My profile</Text>
@@ -68,7 +68,7 @@ export function MoreItem() {
               style={styles.switchNotice}
               trackColor={{ false: '#BEBEBE', true: '#DB147F' }}
               thumbColor={isEnabled ? '#FFF ' : '#FFF'}
-              ios_backgroundColor="#DB147F"
+              ios_backgroundColor='#DB147F'
               onValueChange={toggleSwitch}
               value={isEnabled}
             />
